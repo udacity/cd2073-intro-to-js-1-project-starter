@@ -19,10 +19,57 @@
         <div class="cart-container">
             <div class="products-container">
                 <h2>Products</h2>
-                <div class="products"></div>
+                <div class="products">
+                    <div class="cherry">
+                    <img src="images/cherry.jpg">
+                    <h3>Carton of Cherries</h3>
+                <p>price: $4</p>
+                <button>ADD TO CART</button>
+                </div>
+                    <div class="berry">
+                        <img src="images/strawberry.jpg">
+                        <h3>Carton of Strawberries</h3>
+                        <p>price: $5</p>
+                        <button>ADD TO CART</button>
+                    </div>
+                        <div class="orange">
+                            <img src="images/orange.jpg">
+                            <h3>Bag of Oranges</h3>
+                            <p>price: $10</p>
+                            <button>ADD TO CART</button>
+                        </div>
+                </div>
                 <h2>Your Shopping Cart</h2>
                 <div class="empty-btn"></div>
-                <div class="cart"></div>
+                <div class="cart">
+                    <div class="">
+                        <h3>Carton of Cherries</h3>
+                        <p>price: $4</p>
+                        <p id="cherry">quantity: 3</p>
+                        <p>total: $12</p>
+                        <button onclick=increaseQuantity(cherry)>+</button>
+                        <button>-</button>
+                        <button>Remove</button>
+                    </div>
+                    <div class="">
+                        <h3>Carton of Strawberries</h3>
+                        <p>price: $5</p>
+                        <p>quantity: 1</p>
+                        <p>total: $5</p>
+                        <button>+</button>
+                        <button>-</button>
+                        <button>Remove</button>
+                    </div>
+                    <div class="">
+                        <h3>Bag of Oranges</h3>
+                        <p>price: $10</p>
+                        <p>quantity: 2</p>
+                        <p>total: $20</p>
+                        <button>+</button>
+                        <button>-</button>
+                        <button>Remove</button>
+                    </div>
+                </div>
             </div>
             <div class="checkout-container">
                 <h2>Checkout</h2>
