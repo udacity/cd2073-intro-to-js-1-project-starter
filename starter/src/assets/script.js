@@ -81,11 +81,24 @@ function increaseQuantity(productId) {
 
 function decreaseQuantity(productId) {
   for (let i = 0; i < products.length; i++) {
-    if (productId === products[i].productId && products[i].quantity > 1) {
+    if (productId === products[i].productId) {
       products[i].quantity--;
-    }
+      if (products[i].quantity < 1) {
+        cart.splice(cart.indexOf(products[i]), 1);
+      }
+    } 
   }
 }
+// function decreaseQuantity(productId) {
+//   for (let i = 0; i < products.length; i++) {
+//     if (productId === products[i].productId && products[i].quantity > 1) {
+//       products[i].quantity--;
+//     } else if (productId === products[i].productId && products[i].quantity <= 1) {
+//       products[i].quantity--;
+//       removeProductFromCart(products[i])
+//     }
+//   }
+// }
 
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
