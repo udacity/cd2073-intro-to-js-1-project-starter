@@ -95,8 +95,8 @@ function decreaseQuantity(productId) {
 function removeProductFromCart(productId) {
   for (let i = 0; i < products.length; i++) {
     if (productId === products[i].productId) {
-      products[i].quantity = 0
-      cart.splice(cart.indexOf(products[i]),1)
+      products[i].quantity = 0;
+      cart.splice(cart.indexOf(products[i]), 1);
     }
   }
 }
@@ -106,11 +106,23 @@ function removeProductFromCart(productId) {
   - cartTotal should return the sum of the products in the cart
 */
 
-function cartTotal() {}
+function cartTotal() {
+  let sum = 0;
+  cart.forEach(function (product) {
+    sum = sum + product.quantity * product.price;
+  });
+  console.log(sum)
+  return sum;
+}
 
 /* Create a function called emptyCart that empties the products from the cart */
 
-function emptyCart() {}
+function emptyCart() {
+  cart = []
+  products.forEach(function (product) {
+    product.quantity = 0
+  })
+}
 
 /* Create a function named pay that takes in an amount as an argument
   - pay will return a negative number if there is a remaining balance
