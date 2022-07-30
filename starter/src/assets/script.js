@@ -111,17 +111,17 @@ function cartTotal() {
   cart.forEach(function (product) {
     sum = sum + product.quantity * product.price;
   });
-  console.log(sum)
+  console.log(sum);
   return sum;
 }
 
 /* Create a function called emptyCart that empties the products from the cart */
 
 function emptyCart() {
-  cart = []
+  cart = [];
   products.forEach(function (product) {
-    product.quantity = 0
-  })
+    product.quantity = 0;
+  });
 }
 
 /* Create a function named pay that takes in an amount as an argument
@@ -129,7 +129,11 @@ function emptyCart() {
   - pay will return a positive number if money should be returned to customer
 */
 
-function pay(amount) {}
+function pay(amount) {
+  let balance = 0;
+  balance = cartTotal();
+  return  amount - balance;
+}
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
