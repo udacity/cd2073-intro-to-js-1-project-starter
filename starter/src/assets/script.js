@@ -16,7 +16,7 @@ let products = [
     image: "../images/strawberry.jpg",
   },
   {
-    name: "Carton of Cherries",
+    name: "Carton of Oranges",
     price: 4,
     quantity: 0,
     productId: 3,
@@ -41,7 +41,6 @@ let products = [
 /* Declare an empty array named cart to hold the items in the cart */
 let cart = [];
 
-
 /* Create a function named addProductToCart that takes in the product productId as an argument
 - addProductToCart should get the correct product based on the productId
 - addProductToCart should then increase the product's quantity
@@ -51,14 +50,14 @@ function addProductToCart(productId) {
   for (let i = 0; i < products.length; i++) {
     if (productId === products[i].productId) {
       if (cart.includes(products[i])) {
-        products[i].quantity++;    
-      }else {
-        cart.push(products[i])
+        products[i].quantity++;
+      } else {
+        cart.push(products[i]);
         products[i].quantity++;
       }
     }
   }
-  console.log(cart)
+  console.log(cart);
 }
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
@@ -67,7 +66,11 @@ function addProductToCart(productId) {
 */
 
 function increaseQuantity(productId) {
-
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i].productId) {
+      products[i].quantity++;
+    }
+  }
 }
 
 /* Create a function named decreaseQuantity that takes in the productId as an argument
@@ -77,7 +80,11 @@ function increaseQuantity(productId) {
 */
 
 function decreaseQuantity(productId) {
-  
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i].productId && products[i].quantity > 1) {
+      products[i].quantity--;
+    }
+  }
 }
 
 /* Create a function named removeProductFromCart that takes in the productId as an argument
@@ -85,38 +92,33 @@ function decreaseQuantity(productId) {
   - removeProductFromCart should update the product quantity to 0
   - removeProductFromCart should remove the product from the cart
 */
-function removeProductFromCart (productId) {
-
+function removeProductFromCart(productId) {
+  for (let i = 0; i < products.length; i++) {
+    if (productId === products[i]) {
+      products[i].quantity = 0
+    }
+  }
 }
-
 
 /* Create a function named cartTotal that has no parameters
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
 */
 
-function cartTotal () {
-
-}
+function cartTotal() {}
 
 /* Create a function called emptyCart that empties the products from the cart */
 
-function emptyCart() {
-
-}
+function emptyCart() {}
 
 /* Create a function named pay that takes in an amount as an argument
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
 
-function pay(amount) {
-
-}
+function pay(amount) {}
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
-
-
 
 /* The following is for running unit tests. 
    To fully complete this project, it is expected that all tests pass.
