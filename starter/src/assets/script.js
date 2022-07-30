@@ -94,8 +94,9 @@ function decreaseQuantity(productId) {
 */
 function removeProductFromCart(productId) {
   for (let i = 0; i < products.length; i++) {
-    if (productId === products[i]) {
+    if (productId === products[i].productId) {
       products[i].quantity = 0
+      cart.splice(cart.indexOf(products[i]),1)
     }
   }
 }
