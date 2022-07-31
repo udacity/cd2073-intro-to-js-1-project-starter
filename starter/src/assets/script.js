@@ -35,7 +35,6 @@ function addProductToCart(productId) {
       }
     }
   }
-  console.log(cart);
 }
 
 function increaseQuantity(productId) {
@@ -87,29 +86,13 @@ function pay(amount) {
   return amount - balance;
 }
 
-/* The following is for running unit tests. 
-   To fully complete this project, it is expected that all tests pass.
-   Run the following command in terminal to run tests
-   npm run test
-*/
-
-// function currency(currency) {
-//   products.forEach(function (product) {
-//     if (currency === "USD") {
-//       product.price = 4;
-//     } else if (currency === "YEN") {
-//       product.price = 3.98
-//     } else if (currency === "EUR") {
-//       product.price = 133.25
-//     }
-//   })
-// }
+// badly made currency converter, couldn't manage to create a more practical converter.
 function currency(currency) {
   if (currency === "USD") {
     products[0].price = 4;
     products[1].price = 5;
     products[2].price = 4;
-  }else if (currency === "EUR") {
+  } else if (currency === "EUR") {
     products[0].price = 3.91;
     products[1].price = 4.89;
     products[2].price = 3.91;
