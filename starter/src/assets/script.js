@@ -25,16 +25,16 @@ let products = [
 let cart = [];
 
 function addProductToCart(productId) {
-  for (let i = 0; i < products.length; i++) {
-    if (productId === products[i].productId) {
-      if (cart.includes(products[i])) {
-        products[i].quantity++;
+  products.forEach((product) => {
+    if (productId === product.productId) {
+      if (cart.includes(product)) {
+        product.quantity++;
       } else {
-        cart.push(products[i]);
-        products[i].quantity++;
+        cart.push(product);
+        product.quantity++;
       }
     }
-  }
+  });
 }
 
 function increaseQuantity(productId) {
@@ -80,13 +80,12 @@ function emptyCart() {
   });
 }
 
-
 let totalPaid = 0;
 function pay(amount) {
   let balance = cartTotal();
-  totalPaid +=amount;
+  totalPaid += amount;
 
-  return (totalPaid - balance);
+  return totalPaid - balance;
 }
 
 // badly made currency converter, couldn't manage to create a more practical converter.
@@ -116,6 +115,5 @@ module.exports = {
   cartTotal,
   pay,
   emptyCart,
-  /* Uncomment the following line if completing the currency converter bonus */
   currency,
 };
