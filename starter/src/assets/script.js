@@ -4,21 +4,21 @@ let products = [
     price: 4,
     quantity: 0,
     productId: 1,
-    image: "../images/cherry.jpg",
+    image: "./images/cherry.jpg",
   },
   {
     name: "Carton of Strawberries",
     price: 5,
     quantity: 0,
     productId: 2,
-    image: "../images/strawberry.jpg",
+    image: "./images/strawberry.jpg",
   },
   {
     name: "Carton of Oranges",
     price: 4,
     quantity: 0,
     productId: 3,
-    image: "../images/orange.jpg",
+    image: "./images/orange.jpg",
   },
 ];
 
@@ -80,10 +80,13 @@ function emptyCart() {
   });
 }
 
+
+let totalPaid = 0;
 function pay(amount) {
-  let balance = 0;
-  balance = cartTotal();
-  return amount - balance;
+  let balance = cartTotal();
+  totalPaid +=amount;
+
+  return (totalPaid - balance);
 }
 
 // badly made currency converter, couldn't manage to create a more practical converter.
