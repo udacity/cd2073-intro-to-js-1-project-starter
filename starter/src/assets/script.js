@@ -53,14 +53,14 @@ function addProductToCart(productId){
   //let product = products.find(element => element.productId == productId);
  
   for(const element of cart){
-   if(element.productId==productId){
+   if(element.productId === productId){
        element.quantity++
        return;
    }
    
    }
    for(const element of products){
-       if(element.productId == productId){
+       if(element.productId === productId){
            element.quantity++;
            cart.push(element);
            return;
@@ -73,7 +73,7 @@ function addProductToCart(productId){
   - increaseQuantity should then increase the product's quantity
 */
 function increaseQuantity(productId){
-  const product = cart.find(element => element.productId == productId);
+  const product = cart.find(product => product.productId === productId);
   product.quantity++;
 }
 
@@ -84,15 +84,17 @@ function increaseQuantity(productId){
 */
 function decreaseQuantity(productId){
   cart.forEach((product,index) => {
-    // Go through each element in cart[]  
-    if(product.quantity - 1 == 0){
-      // remove from cart if quntity = 0
+    // Go through each element in cart[] 
+    if(product.productId === productId){
+      if(product.quantity - 1 === 0){
+        // remove from cart if quntity = 0
+        product.quantity--;
+        cart.splice(index,1);
+        return;
+      }
       product.quantity--;
-      cart.splice(index,1);
       return;
-    }
-    product.quantity--;
-    return;
+    } 
   })
 }
 
@@ -105,7 +107,7 @@ function decreaseQuantity(productId){
 function removeProductFromCart(productId){
   cart.forEach((product,index) =>{
     // Go through each element in cart[]  
-    if(product.productId == productId){
+    if(product.productId === productId){
       // remove from cart 
       cart.splice(index,1);
       return;
@@ -121,7 +123,7 @@ function removeProductFromCart(productId){
 let totalPaid = 0;
 
  function cartTotal(){
-  if(cart.length == 0){
+  if(cart.length === 0){
     return 0;
   }
   let sum = 0;
@@ -167,3 +169,14 @@ module.exports = {
    /* Uncomment the following line if completing the currency converter bonus */
    // currency
 }
+
+/*-------------------------testing
+addProductToCart(101);
+console.log(cart);
+addProductToCart(102);
+console.log(cart);
+addProductToCart(103);
+console.log(cart);
+increaseQuantity(101);
+decreaseQuantity(103);
+*/
