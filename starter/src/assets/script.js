@@ -12,7 +12,7 @@ const products = [];
 */
 products[0] = {
   name: "Cherry",
-  price: 8.25,
+  price: 5,
   quantity: 0,
   productId: 101,
   image: "./images/cherry.jpg"
@@ -20,7 +20,7 @@ products[0] = {
 
 products[1] = {
   name: "Orange",
-  price: 2.45,
+  price: 2,
   quantity: 0,
   productId: 102,
   image: "./images/orange.jpg"
@@ -28,7 +28,7 @@ products[1] = {
 
 products[2] = {
   name: "Strawberry",
-  price: 7.3,
+  price: 3,
   quantity: 0,
   productId: 103,
   image: "./images/strawberry.jpg"
@@ -109,6 +109,7 @@ function removeProductFromCart(productId){
     // Go through each element in cart[]  
     if(product.productId === productId){
       // remove from cart 
+      product.quantity = 0;
       cart.splice(index,1);
       return;
     }
@@ -144,7 +145,8 @@ function emptyCart(){
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount){
-  return +(amount - cartTotal()).toFixed(2);
+  totalPaid += amount;
+  return +(totalPaid - cartTotal()).toFixed(2);
 }
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
@@ -170,13 +172,3 @@ module.exports = {
    // currency
 }
 
-/*-------------------------testing
-addProductToCart(101);
-console.log(cart);
-addProductToCart(102);
-console.log(cart);
-addProductToCart(103);
-console.log(cart);
-increaseQuantity(101);
-decreaseQuantity(103);
-*/
