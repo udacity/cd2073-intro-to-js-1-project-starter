@@ -7,6 +7,22 @@ const products = [{
   productID: "101",
   image: URL("/Users/dmitrithompson/Documents/build-a-shopping-cart/shopping-cart-project/starter/src/images/cherry.jpg")
  },
+{
+  product: "Carton of Strawberries",
+  price: "$5",
+  quantity: "0",
+  productID: "102",
+  image: URL("/Users/dmitrithompson/Documents/build-a-shopping-cart/shopping-cart-project/starter/src/images/strawberry.jpg")
+},
+{
+  product: "bag of Oranges",
+  price: "$10",
+  quantity: "0",
+  productID: "103",
+  image: URL("/Users/dmitrithompson/Documents/build-a-shopping-cart/shopping-cart-project/starter/src/images/orange.jpg")
+}]
+
+return(products);
 
 /* Create 3 or more product objects using object literal notation 
    Each product should include five properties
