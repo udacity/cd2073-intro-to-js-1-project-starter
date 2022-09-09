@@ -77,6 +77,12 @@ function decreaseQuantity(productId) {
   - removeProductFromCart should remove the product from the cart
 */
 
+function removeProductFromCart(productId) {
+  let product = products.find((item => item.productId === productId));
+  let index = cart.findIndex((item => item.productId === productId));
+  cart.splice(index, 1);
+  product.quantity = 0;
+  }
 /* Create a function named cartTotal that has no parameters
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
