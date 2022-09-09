@@ -1,4 +1,12 @@
-/* Create an array named products which you will use to add all of your product object literals that you create in the next step. */
+/* Create an array named products which you will use to add all of your product object literals that you create in the next step. 
+  Create 3 or more product objects using object literal notation 
+   Each product should include five properties
+   - name: name of product (string)
+   - price: price of product (number)
+   - quantity: quantity in cart should start at zero (number)
+   - productId: unique id for the product (number)
+   - image: picture of product (url string)
+*/
 const products = [{
   name: "Cherry",
   price: 50,
@@ -23,23 +31,9 @@ const products = [{
 }
 ];
 
-/* Create 3 or more product objects using object literal notation 
-   Each product should include five properties
-   - name: name of product (string)
-   - price: price of product (number)
-   - quantity: quantity in cart should start at zero (number)
-   - productId: unique id for the product (number)
-   - image: picture of product (url string)
-*/
-
-/* Images provided in /images folder. All images from Unsplash.com
-   - cherry.jpg by Mae Mu
-   - orange.jpg by Mae Mu
-   - strawberry.jpg by Allec Gomes
-*/
-
 /* Declare an empty array named cart to hold the items in the cart */
-
+let cart = [];
+let totalPaid = 0;
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
   - addProductToCart should then increase the product's quantity
