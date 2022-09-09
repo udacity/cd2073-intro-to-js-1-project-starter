@@ -87,7 +87,13 @@ function removeProductFromCart(productId) {
   - cartTotal should iterate through the cart to get the total of all products
   - cartTotal should return the sum of the products in the cart
 */
-
+function cartTotal() {
+  let itemTotal = 0;
+  cart.forEach(function(product) {
+    itemTotal += ((product.price) * (product.quantity));
+  });
+  return itemTotal;
+  }
 /* Create a function called emptyCart that empties the products from the cart */
 
 /* Create a function named pay that takes in an amount as an argument
