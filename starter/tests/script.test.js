@@ -66,13 +66,14 @@ describe('Checkout Functionality Tests', () => {
         expect(cart.cartTotal()).toEqual(grandTotal());
     });
 
-    test('pay more than the total works', () => {
-        expect(cart.pay(100000000000000)).toBeGreaterThan(grandTotal());
-    });
-
+    
     test('pay less than the total works', () => {
         cart.addProductToCart(product1.productId);
         cart.addProductToCart(product2.productId);
         expect(cart.pay(1)).toBeLessThan(grandTotal());
+    });
+
+    test('pay more than the total works', () => {
+        expect(cart.pay(100000000000000)).toBeGreaterThan(grandTotal());
     });
 });
