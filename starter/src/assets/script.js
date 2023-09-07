@@ -121,6 +121,7 @@ products.forEach(function(product){
   - cartTotal should return the sum of the products in the cart
 */
 
+
 function cartTotal(){
 let total = 0;
 products.forEach(function(product){
@@ -133,6 +134,9 @@ return total;
   
 function emptyCart(){
 cart.length = 0;
+products.forEach(function(product){
+  product.quantity = 0;
+})
 }
 
 
@@ -141,12 +145,14 @@ cart.length = 0;
   - pay will return a positive number if money should be returned to customer
 */
 
-function pay(amount){
-let amountRemain;
-amountRemain = amount - cartTotal();
-return amountRemain;
-}
+let totalPaid = 0;
 
+function pay(amount) {
+totalPaid += amount;
+remain = totalPaid - cartTotal();
+return remain;
+//console.log(remain);
+}
 
 
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
