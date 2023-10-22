@@ -12,66 +12,32 @@
     <script src="assets/script.js" defer></script>
     <script src="assets/front.js" defer></script>
 </head>
-<div class="shopping-cart">
-    <h1>The Country Corner Store</h1>
-
-    <div class="cart-container">
-        <div class="products-container">
-            <h2>Products</h2>
-            <div class="products">
-                <p>Cherries (ID: 1): <span class="price" data-price="10.00">USD 10.00</span></p>
-                <p>Orange (ID: 2): <span class="price" data-price="25.00">USD 25.00</span></p>
-                <p>Strawberries (ID: 3): <span class="price" data-price="50.00">USD 50.00</span></p>
+<body>
+    <div class="shopping-cart">
+        <h1>Stephanie's Ghetto Fruit Stand</h1>
+        <div class="currency-selector"></div>
+        <div class="cart-container">
+            <div class="products-container">
+                <h2>Products</h2>
+                <div class="products"></div>
+                <h2>Your Shopping Cart</h2>
+                <div class="empty-btn"></div>
+                <div class="cart"></div>
             </div>
-    
-        </div>
-
-        <div class="checkout-container">
-            <h2>Your Shopping Cart</h2>
-            <div class="empty-btn">
-                <button onclick="emptyCart()">Empty Cart</button>
-            </div>
-            <div class="cart">
-                <!-- Shopping cart content goes here -->
-            </div>
-            <div class="checkout">
+            <div class="checkout-container">
                 <h2>Checkout</h2>
-                <div class="cart-total"></div>
-                <div class="currency-selector">
-                    <label for="currencySelector">Select Currency: </label>
-                    <select id="currencySelector" onchange="updateCurrency(this.value)">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="YEN">YEN</option>
-                    </select>
+                <div class="checkout">
+                    <div class="cart-total"></div>
+                    <form>
+                        <label>Enter Cash Received:</label>
+                        <input class="received" type="text">
+                        <button class="pay">Submit</button> 
+                    </form>
+                    <h3>Receipt</h3>
+                    <div class="pay-summary"></div>
                 </div>
-                <form>
-                    <label>Enter Cash Received:</label>
-                    <input class="received" type="text">
-                    <button class="pay">Submit</button>
-                </form>
-            </div>
-            <h1>Credit Or Debit Card</h1>
-            <form id="creditCardForm">
-                <label for="cardNumber">Card Number:</label>
-                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" />
-                <div id="cardNumberError" class="error"></div>
-                <label for "expirationDate" >Expiration Date:</label>
-                <input type="text" id="expirationDate" placeholder="MM/YY" />
-                <div id="expirationDateError" class="error"></div>
-                <button type="submit">Submit</button>
-            </form>
-            <h3>Receipt</h3>
-            <div class="pay-summary">
-                <!-- Receipt content goes here -->
             </div>
         </div>
-        
-        </div>
-        </div>
     </div>
-</div>
-
-
-    </div>
-</div>
+</body>
+</html>

@@ -101,7 +101,6 @@ document.querySelector('.cart').addEventListener('click', (e) => {
         runCartFunction(decreaseQuantity);
     }
 });
-
 document.querySelector('.pay').addEventListener('click', (e) => {
     e.preventDefault();
 
@@ -109,33 +108,47 @@ document.querySelector('.pay').addEventListener('click', (e) => {
     let amount = document.querySelector('.received').value;
     amount *= 1;
 
-    // Set cashReturn to return value of pay()
-    let cashReturn = pay(amount);
-
     let paymentSummary = document.querySelector('.pay-summary');
     let div = document.createElement('div');
 
-    // If total cash received is greater than cart total thank customer
-    // Else request additional funds
-    if (cashReturn >= 0) {
+    let cashReturn = pay(amount);
+
+    if (cashReturn > 0) {
         div.innerHTML = `
             <p>Cash Received: ${currencySymbol}${amount}</p>
-            <p>Cash Returned: ${currencySymbol}${cashReturn}</p>
             <p>Thank you!</p>
+            <p>Change: ${currencySymbol}${cashReturn.toFixed(2)}</p>
         `;
-    } else {
-        // reset cash field for next entry
+    } else if (cashReturn < 0) {
         document.querySelector('.received').value = '';
         div.innerHTML = `
             <p>Cash Received: ${currencySymbol}${amount}</p>
-            <p>Remaining Balance: ${cashReturn}$</p>
-            <p>Please pay additional amount.</p>
+            <p>Remaining Balance: ${currencySymbol}${Math.abs(cashReturn).toFixed(2)}</p>
+            <p>Please pay the remaining balance.</p>
             <hr/>
+        `;
+    } else {
+        div.innerHTML = `
+            <p>Cash Received: ${currencySymbol}${amount}</p>
+            <p>Thank you!</p>
         `;
     }
 
+    // Append the div to the paymentSummary element
+    paymentSummary.innerHTML = '';
     paymentSummary.append(div);
 });
+
+
+
+
+
+
+
+
+
+
+
 
 /* Standout suggestions */
 /* Begin remove all items from cart */

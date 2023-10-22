@@ -2,135 +2,97 @@
     font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-    text-align: center;
-    background-color: #cce7f5;
+    background-color: #02c2f3;
+
 }
 
 h1 {
     text-align: center;
     padding: 1em;
-    font-size: 35px;
-    color: #17b17b;
-}
-
-h2,
-h3 {
-    padding: 1em 0 .5em;
-    font-size: 25px;
-    color: #2e00e4;
+    color: #ff0019;
+    font-style: oblique;
+    border: #ff0019;
     text-align: center;
-    font-display: bold;
+    font-weight: 800;
 }
-
+h2, h3 {
+    padding: 1em 0 .5em;
+    color: #ff0000;
+    text-align: center;
+}
 p {
     padding-bottom: 1em;
-    font-size: 16px;
-    color: #000000;
-    text-align: center;
 }
-
-.products-container {
+.products-container{
     width: 100%;
     max-width: 55em;
     padding: 2em;
-    background: #cce7f5;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    color: #000000;
+    text-align: center;
+    font-weight: 800;
 }
-
 .cart-container {
     display: flex;
-    flex-wrap: wrap;
 }
-
 .checkout-container {
     max-width: 34em;
     padding: 2em;
-    background: #0e0e0e;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin: 20px;
+    background: #0a728c;
+    font-weight: 800;
+    text-align: center;
 }
-
-.products,
-.cart {
+.products, .cart{
     display: flex;
     flex-wrap: wrap;
 }
 
-.products>div {
-    background: #c6ebd6;
+.products > div {
+    background: #117f9b;
     margin: 1em;
     padding: 2em;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-    border-radius: 10px;
-    text-align: center;
 }
 
-.products>div img {
+.products > div img {
     max-width: 175px;
     height: auto;
-    border-radius: 5px;
 }
 
-.products>div h3 {
+.products > div h3 {
     font-weight: 800;
-    font-size: 18px;
-    color: #2037ca;
 }
 
-.cart>div {
-    border: 1px solid #f1f1f1;
+.cart > div {
+    border: 1px solid #eb5b5b;
     margin: 1em;
     padding: 2em;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-    border-radius: 10px;
-    text-align: center;
 }
-
 .checkout-container {
     max-width: 34em;
-    text-align: center;
-    padding: 2em;
-    background: #cce7f5;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
-
 .checkout {
     margin-bottom: 4em;
 }
 
 button {
-    border: 1px solid #ccc;
-    background: #28e3dd;
-    padding: 1em 2em;
+    border: 1px solid #f20c0c;
+    background: #f4b8b8;
+    padding: 1em;
     transition: .2s ease all;
     text-transform: uppercase;
-    cursor: pointer;
-    border-radius: 5px;
 }
-
 button.pay {
-    background: #a485ef;
-    vertical-align: middle;
-    font-weight: 600;
-    color: #000000b1;
+    background: #02c2f3;
+    vertical-align: middle
 }
-
 button:hover {
-    background: #f40699;
-    color: #fff;
+    background: rgb(250, 210, 255);
+    color: #000000;
     cursor: pointer;
 }
 
 .received {
     font-size: 1.5em;
     padding: 0.3em;
-    border: 1px solid #5502f0;
-    border-radius: 5px;
-    vertical-align: middle;
+    border: 1px solid #c51f1f;
+    vertical-align: middle
 }

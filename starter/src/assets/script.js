@@ -2,46 +2,24 @@
 const products = [
   {
     productId: 1,
-    name: "Cherries",
+    name: 'Cherries',
     price: 19.99,
     quantity: 0,
-    image: "/starter/src/images/cherry.jpg",
+    image: '/../starter/src/images/cherry.jpg',
   },
-
   {
     productId: 2,
-    name: "Orange",
+    name: 'Oranges',
     price: 24.99,
     quantity: 0,
-    image: "/starter/src/images/orange.jpg",
+    image: '/../starter/src/images/orange.jpg',
   },
   {
     productId: 3,
-    name: "Strawberries",
+    name: 'Strawberries',
     price: 14.99,
     quantity: 0,
-    image: "/starter/src/images/strawberry.jpg",
-  },
-  {
-    productId: 4,
-    name: "Comatose Burger",
-    price: 30.30,
-    quantity: 0,
-    image: "https://images.pexels.com/photos/2586065/pexels-photo-2586065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    productId: 5,
-    name: "Soap Kit",
-    price: 45.00,
-    quantity: 0,
-    image: "https://images.pexels.com/photos/10574059/pexels-photo-10574059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-  },
-  {
-    productId: 6,
-    name: "Make Up",
-    price: 30.00,
-    quantity: 0,
-    image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    image: '/../starter/src/images/strawberry.jpg',
   },
 ];
 
@@ -64,13 +42,14 @@ const products = [
 /* Declare an empty array named cart to hold the items in the cart */
 const cart = [];
 
+
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
   - addProductToCart should then increase the product's quantity
   - if the product is not already in the cart, add it to the cart
 */
 function addProductToCart(productId) {
-  //Find the product with the given productId
+  // Find the product with the given productId
   const product = products.find((p) => p.productId === productId);
 
   if (product) {
@@ -86,9 +65,10 @@ function addProductToCart(productId) {
       cart.push(productToAdd);
     }
   } else {
-    console.log("Product not found"); // Handle the case where the product doesn't exist
+    return('Product not found'); // Handle the case where the product doesn't exist
   }
 }
+
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
@@ -102,7 +82,7 @@ function increaseQuantity(productId) {
     // If the product is found in the cart, increase its quantity
     cartItem.quantity++;
   } else {
-    console.log("Product not found in the cart"); // Handle the case where the product is not in the cart
+    return('Product not found in the cart'); // Handle the case where the product is not in the cart
   }
 }
 
@@ -124,9 +104,11 @@ function decreaseQuantity(productId) {
       removeProductFromCart(productId);
     }
   } else {
-    console.log("Product not found in the cart"); // Handle the case where the product is not in the cart
+    return('Product not found in the cart'); // Handle the case where the product is not in the cart
   }
 }
+
+
 
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
@@ -144,9 +126,10 @@ function removeProductFromCart(productId) {
     // Remove the product from the cart
     cart.splice(index, 1);
   } else {
-    console.log("Product not found in the cart"); // Handle the case where the product is not in the cart
+    return('Product not found in the cart'); // Handle the case where the product is not in the cart
   }
 }
+
 
 /* Create a function named cartTotal that has no parameters
   - cartTotal should iterate through the cart to get the total of all products
@@ -164,26 +147,53 @@ function cartTotal() {
 }
 /* Create a function called emptyCart that empties the products from the cart */
 function emptyCart() {
-  cart.length = 0; // Set the cart array to an empty array
+  cart.length = 0;
 }
+
 /* Create a function named pay that takes in an amount as an argument
   - pay will return a negative number if there is a remaining balance
   - pay will return a positive number if money should be returned to customer
 */
 function pay(amount) {
-  const total = cartTotal();
-  const difference = amount - total;
+  totalPaid = amount; // Set the totalPaid to the current payment amount
 
-  return difference;
 }
+
+
+
+
+
+
+let totalPaid = 0; // Variable to keep track of the total amount paid
+
+function pay(amount) {
+  totalPaid += amount;
+
+  const remaining = cartTotal() - totalPaid;
+
+  if (remaining >= 0) {
+    totalPaid = 0;
+    emptyCart();
+    return -remaining; // Return the negative remaining balance
+  } else {
+    return remaining; // Return the positive remaining balance
+  }
+}
+
+function displayReceipt(message) {
+  const receiptElement = document.querySelector(".pay-summary");
+  receiptElement.innerHTML = message;
+}
+
+
+
+
+
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
-/* The following is for running unit tests. 
-   To fully complete this project, it is expected that all tests pass.
-   Run the following command in terminal to run tests
-   npm run test
-*/
 
+// Display the receipt with the provided messagefunction displayReceipt(message) {
+  
 module.exports = {
   products,
   cart,
@@ -192,8 +202,11 @@ module.exports = {
   decreaseQuantity,
   removeProductFromCart,
   cartTotal,
-  pay,
+  pay, 
   emptyCart,
   /* Uncomment the following line if completing the currency converter bonus */
-  //currency
-};
+  // currency
+}
+
+
+
