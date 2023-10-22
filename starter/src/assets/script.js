@@ -172,11 +172,12 @@ function pay(amount) {
   const remaining = cartTotal() - totalPaid;
 
   if (remaining >= 0) {
+    // Set the balance to zero
     totalPaid = 0;
     emptyCart();
-    return -remaining; // Return the negative remaining balance
-  } else {
     return remaining; // Return the positive remaining balance
+  } else {
+    return -remaining; // Return the negative remaining balance
   }
 }
 
@@ -184,6 +185,7 @@ function displayReceipt(message) {
   const receiptElement = document.querySelector(".pay-summary");
   receiptElement.innerHTML = message;
 }
+
 
 
 
