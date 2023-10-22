@@ -2,27 +2,26 @@
 const products = [
   {
     productId: 1,
-    name: 'Cherries',
+    name: "Cherries",
     price: 19.99,
     quantity: 0,
-    image: '/starter/src/images/cherry.jpg',
+    image: "/starter/src/images/cherry.jpg",
   },
   {
     productId: 2,
-    name: 'Orange',
+    name: "Orange",
     price: 24.99,
     quantity: 0,
-    image: '/starter/src/images/orange.jpg',
+    image: "/starter/src/images/orange.jpg",
   },
   {
     productId: 3,
-    name: 'Strawberries',
+    name: "Strawberries",
     price: 14.99,
     quantity: 0,
-    image: '/starter/src/images/strawberry.jpg',
+    image: "/starter/src/images/strawberry.jpg",
   },
 ];
-
 
 /* Create 3 or more product objects using object literal notation 
    Each product should include five properties
@@ -41,7 +40,6 @@ const products = [
 
 /* Declare an empty array named cart to hold the items in the cart */
 const cart = [];
-
 
 /* Create a function named addProductToCart that takes in the product productId as an argument
   - addProductToCart should get the correct product based on the productId
@@ -65,10 +63,9 @@ function addProductToCart(productId) {
       cart.push(productToAdd);
     }
   } else {
-    console.log('Product not found'); // Handle the case where the product doesn't exist
+    console.log("Product not found"); // Handle the case where the product doesn't exist
   }
 }
-
 
 /* Create a function named increaseQuantity that takes in the productId as an argument
   - increaseQuantity should get the correct product based on the productId
@@ -82,7 +79,7 @@ function increaseQuantity(productId) {
     // If the product is found in the cart, increase its quantity
     cartItem.quantity++;
   } else {
-    console.log('Product not found in the cart'); // Handle the case where the product is not in the cart
+    console.log("Product not found in the cart"); // Handle the case where the product is not in the cart
   }
 }
 
@@ -104,10 +101,9 @@ function decreaseQuantity(productId) {
       removeProductFromCart(productId);
     }
   } else {
-    console.log('Product not found in the cart'); // Handle the case where the product is not in the cart
+    console.log("Product not found in the cart"); // Handle the case where the product is not in the cart
   }
 }
-
 
 /* Create a function named removeProductFromCart that takes in the productId as an argument
   - removeProductFromCart should get the correct product based on the productId
@@ -125,7 +121,7 @@ function removeProductFromCart(productId) {
     // Remove the product from the cart
     cart.splice(index, 1);
   } else {
-    console.log('Product not found in the cart'); // Handle the case where the product is not in the cart
+    console.log("Product not found in the cart"); // Handle the case where the product is not in the cart
   }
 }
 
@@ -159,7 +155,6 @@ function pay(amount) {
 }
 /* Place stand out suggestions here (stand out suggestions can be found at the bottom of the project rubric.)*/
 
-
 /* The following is for running unit tests. 
    To fully complete this project, it is expected that all tests pass.
    Run the following command in terminal to run tests
@@ -167,15 +162,15 @@ function pay(amount) {
 */
 
 module.exports = {
-   products,
-   cart,
-   addProductToCart,
-   increaseQuantity,
-   decreaseQuantity,
-   removeProductFromCart,
-   cartTotal,
-   pay, 
-   emptyCart,
-   /* Uncomment the following line if completing the currency converter bonus */
-    //currency
-}
+  products,
+  cart,
+  addProductToCart,
+  increaseQuantity,
+  decreaseQuantity,
+  removeProductFromCart,
+  cartTotal,
+  pay,
+  emptyCart,
+  /* Uncomment the following line if completing the currency converter bonus */
+  //currency
+};

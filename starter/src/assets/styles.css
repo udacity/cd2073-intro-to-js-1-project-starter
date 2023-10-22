@@ -14,7 +14,8 @@ h1 {
     color: #17b17b;
 }
 
-h2, h3 {
+h2,
+h3 {
     padding: 1em 0 .5em;
     font-size: 25px;
     color: #2e00e4;
@@ -52,12 +53,13 @@ p {
     margin: 20px;
 }
 
-.products, .cart {
+.products,
+.cart {
     display: flex;
     flex-wrap: wrap;
 }
 
-.products > div {
+.products>div {
     background: #c6ebd6;
     margin: 1em;
     padding: 2em;
@@ -67,19 +69,19 @@ p {
     text-align: center;
 }
 
-.products > div img {
+.products>div img {
     max-width: 175px;
     height: auto;
     border-radius: 5px;
 }
 
-.products > div h3 {
+.products>div h3 {
     font-weight: 800;
     font-size: 18px;
     color: #2037ca;
 }
 
-.cart > div {
+.cart>div {
     border: 1px solid #f1f1f1;
     margin: 1em;
     padding: 2em;
