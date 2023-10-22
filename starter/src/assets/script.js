@@ -169,7 +169,7 @@ let totalPaid = 0; // Variable to keep track of the total amount paid
 function pay(amount) {
   totalPaid += amount;
 
-  const remaining = cartTotal() - totalPaid;
+  const remaining = totalPaid - cartTotal();
 
   if (remaining >= 0) {
     // Set the balance to zero
