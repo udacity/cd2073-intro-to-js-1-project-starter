@@ -7,6 +7,7 @@ const products = [
     quantity: 0,
     image: "/starter/src/images/cherry.jpg",
   },
+
   {
     productId: 2,
     name: "Orange",
@@ -21,7 +22,29 @@ const products = [
     quantity: 0,
     image: "/starter/src/images/strawberry.jpg",
   },
+  {
+    productId: 4,
+    name: "Comatose Burger",
+    price: 30.30,
+    quantity: 0,
+    image: "https://images.pexels.com/photos/2586065/pexels-photo-2586065.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    productId: 5,
+    name: "Soap Kit",
+    price: 45.00,
+    quantity: 0,
+    image: "https://images.pexels.com/photos/10574059/pexels-photo-10574059.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
+  {
+    productId: 6,
+    name: "Make Up",
+    price: 30.00,
+    quantity: 0,
+    image: "https://images.pexels.com/photos/2533266/pexels-photo-2533266.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+  },
 ];
+
 
 /* Create 3 or more product objects using object literal notation 
    Each product should include five properties
