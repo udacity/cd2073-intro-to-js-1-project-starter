@@ -2,11 +2,12 @@
     font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
-    background-image: background-image: url('/starter/src/images/34810.jpg'); /* Replace with the actual path */
+}
+
+body {
+    background-image: url('/../starter/src/images/34810.jpg'); /* Replace with the actual path */
     background-size: cover;
     background-repeat: repeat;
-  
-
 }
 
 h1 {
@@ -14,42 +15,44 @@ h1 {
     padding: 1em;
     color: #ff0019;
     font-style: oblique;
-    border: #ff0019;
     text-align: center;
     font-weight: 800;
-    background-color: #02c2f3;
-    opacity: 80%;
+    background-color: rgba(2, 194, 243, 0.8); /* Adjust the background color and opacity as needed */
 }
+
 h2, h3 {
     padding: 0em 0 .1em;
     color: #ff0000;
     text-align: center;
-    background-color: #02c2f3;
+    background-color: rgba(2, 194, 243, 0.8); /* Adjust the background color and opacity as needed */
 }
+
 p {
     padding-bottom: 1em;
 }
-.products-container{
+
+.products-container {
     width: 100%;
     max-width: 55em;
     padding: 2em;
     color: #000000;
     text-align: center;
     font-weight: 800;
-    
 }
+
 .cart-container {
     display: flex;
 }
+
 .checkout-container {
     max-width: 34em;
     padding: 2em;
     background: #a00d0d;
     font-weight: 800;
     text-align: center;
-   
 }
-.products, .cart{
+
+.products, .cart {
     display: flex;
     flex-wrap: wrap;
 }
@@ -58,7 +61,6 @@ p {
     background: #b51717;
     margin: 1em;
     padding: 2em;
-    
 }
 
 .products > div img {
@@ -74,11 +76,12 @@ p {
     border: 1px solid #b11414;
     margin: 1em;
     padding: 2em;
-    
 }
+
 .checkout-container {
     max-width: 34em;
 }
+
 .checkout {
     margin-bottom: 4em;
 }
@@ -90,12 +93,14 @@ button {
     transition: .2s ease all;
     text-transform: uppercase;
 }
+
 button.pay {
-    background: #02c2f3;
-    vertical-align: middle
+    background: rgba(2, 194, 243, 0.8); /* Adjust the background color and opacity as needed */
+    vertical-align: middle;
 }
+
 button:hover {
-    background: rgb(250, 210, 255);
+    background: rgba(250, 210, 255, 0.8); /* Adjust the background color and opacity as needed */
     color: #000000;
     cursor: pointer;
 }
@@ -104,28 +109,5 @@ button:hover {
     font-size: 1.5em;
     padding: 0.3em;
     border: 1px solid #c51f1f;
-    vertical-align: middle
+    vertical-align: middle;
 }
-/* Apply the background pattern image to the entire site */
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('/../starter/src/images/34810.jpg'); /* Replace with the actual path */
-    background-size: cover;
-    background-repeat: repeat; /* Adjust this based on your pattern image */
-    background-color: rgba(255, 600, 600, 600);
-}
-
-/* Style the banner element as in the previous example */
-.banner {
-    background-color: #971919;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-    font-size: 24px;
-}
-
-/* Add more CSS rules for styling other elements as needed */
