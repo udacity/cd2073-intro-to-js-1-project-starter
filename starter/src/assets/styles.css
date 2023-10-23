@@ -25,6 +25,7 @@ h2, h3 {
     color: #ff0000;
     text-align: center;
     background-color: rgba(2, 194, 243, 0.8); /* Adjust the background color and opacity as needed */
+    background-position: center;
 }
 
 p {
@@ -110,4 +111,24 @@ button:hover {
     padding: 0.3em;
     border: 1px solid #c51f1f;
     vertical-align: middle;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: rgba(2, 194, 243, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+}
+
+footer a:hover {
+    color: #ff0019;
 }
