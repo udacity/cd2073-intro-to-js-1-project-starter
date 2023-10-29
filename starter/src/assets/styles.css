@@ -4,36 +4,67 @@
     margin: 0;
 }
 
+body {
+    background-image: url('/../starter/src/images/34810.jpg'); /* Replace with the actual path */
+    background-size: cover;
+    background-repeat: repeat;
+    
+  
+}
+
 h1 {
     text-align: center;
     padding: 1em;
+    color: #070707;
+    font-style: oblique;
+    text-align: center;
+    
+    font-weight: 800;
+    background-color: rgba(2, 194, 243, 0.8); /* Adjust the background color and opacity as needed */
 }
+
 h2, h3 {
-    padding: 1em 0 .5em;
+    padding: 0em 0 .1em;
+    color: #2a2929d3;
+    text-align: center;
+  font-style: oblique;
+  font-weight: bold;
+    background-position: center;
 }
+
 p {
     padding-bottom: 1em;
 }
-.products-container{
+
+.products-container {
     width: 100%;
     max-width: 55em;
     padding: 2em;
+    color: #000000;
+    text-align: center;
+    font-weight: 800;
 }
+
 .cart-container {
     display: flex;
 }
+
 .checkout-container {
     max-width: 34em;
     padding: 2em;
-    background: #efefef;
+    background: #a00d0d8f;
+    font-weight: 800;
+    text-align: center;
+    font-weight: 1000;
 }
-.products, .cart{
+
+.products, .cart {
     display: flex;
     flex-wrap: wrap;
 }
 
 .products > div {
-    background: #f5f5f5;
+    background: #b51717;
     margin: 1em;
     padding: 2em;
 }
@@ -48,37 +79,62 @@ p {
 }
 
 .cart > div {
-    border: 1px solid #ccc;
+    border: 1px solid #b114146b;
     margin: 1em;
     padding: 2em;
 }
+
 .checkout-container {
     max-width: 34em;
 }
+
 .checkout {
     margin-bottom: 4em;
 }
 
 button {
-    border: 1px solid #ccc;
-    background: #fff;
+    border: 1px solid #f20c0c65;
+    background: #f4b8b8;
     padding: 1em;
     transition: .2s ease all;
     text-transform: uppercase;
 }
+
 button.pay {
-    background: #f5f5f5;
-    vertical-align: middle
+    background: rgba(2, 194, 243, 0.8); /* Adjust the background color and opacity as needed */
+    vertical-align: middle;
 }
+
 button:hover {
-    background: rgb(93, 120, 118);
-    color: #fff;
+    background: rgba(250, 210, 255, 0.8); /* Adjust the background color and opacity as needed */
+    color: #000000;
     cursor: pointer;
 }
 
 .received {
     font-size: 1.5em;
     padding: 0.3em;
-    border: 1px solid #ccc;
-    vertical-align: middle
+    border: 1px solid #101010;
+    vertical-align: middle;
+}
+
+
+footer {
+    text-align: center;
+    padding: 1em;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #fff;
+
+}
+
+footer a:hover {
+    color: #ff0019;
 }

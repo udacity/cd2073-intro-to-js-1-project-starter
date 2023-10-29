@@ -101,41 +101,75 @@ document.querySelector('.cart').addEventListener('click', (e) => {
         runCartFunction(decreaseQuantity);
     }
 });
-
 document.querySelector('.pay').addEventListener('click', (e) => {
     e.preventDefault();
 
     // Get input cash received field value, set to number
-    let amount = document.querySelector('.received').value;
-    amount *= 1;
-
-    // Set cashReturn to return value of pay()
-    let cashReturn = pay(amount);
+    let amount = parseFloat(document.querySelector('.received').value);
 
     let paymentSummary = document.querySelector('.pay-summary');
     let div = document.createElement('div');
 
-    // If total cash received is greater than cart total thank customer
-    // Else request additional funds
-    if (cashReturn >= 0) {
+    let cashReturn = pay(amount);
+
+    if (cashReturn < 0) {
         div.innerHTML = `
-            <p>Cash Received: ${currencySymbol}${amount}</p>
-            <p>Cash Returned: ${currencySymbol}${cashReturn}</p>
+            <p>Cart Total: ${currencySymbol}${cartTotal().toFixed(2)}</p>
+            <p>Cash Entered: ${currencySymbol}${amount.toFixed(2)}</p>
+            <p>Receipt:</p>
+            <p>Cash Received: ${currencySymbol}${(amount - cashReturn).toFixed(2)}</p>
+            <p>Remaining Balance: ${currencySymbol}${(-cashReturn).toFixed(2)}</p>
+            <p>Please pay the remaining balance.</p>
+        `;
+    } else if (cashReturn === 0) {
+        div.innerHTML = `
+            <p>Cart Total: ${currencySymbol}${cartTotal().toFixed(2)}</p>
+            <p>Cash Entered: ${currencySymbol}${amount.toFixed(2)}</p>
+            <p>Receipt:</p>
+            <p>Cash Received: ${currencySymbol}${(amount - cashReturn).toFixed(2)}</p>
+            <p>Remaining Balance: ${currencySymbol}0.00</p>
             <p>Thank you!</p>
         `;
     } else {
-        // reset cash field for next entry
         document.querySelector('.received').value = '';
         div.innerHTML = `
-            <p>Cash Received: ${currencySymbol}${amount}</p>
-            <p>Remaining Balance: ${cashReturn}$</p>
-            <p>Please pay additional amount.</p>
-            <hr/>
+            <p>Cart Total: ${currencySymbol}${cartTotal().toFixed(2)}</p>
+            <p>Cash Entered: ${currencySymbol}${amount.toFixed(2)}</p>
+            <p>Receipt:</p>
+            <p>Cash Received: ${currencySymbol}${(amount - cashReturn).toFixed(2)}</p>
+            <p>Remaining Balance: ${currencySymbol}${cashReturn.toFixed(2)}</p>
+            <p>Please pay the remaining balance.</p>
         `;
     }
 
+    // Append the div to the paymentSummary element
+    paymentSummary.innerHTML = '';
     paymentSummary.append(div);
+
+    // After this payment, you might want to update the cart and checkout as well
+    drawCart();
+    drawCheckout();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Standout suggestions */
 /* Begin remove all items from cart */

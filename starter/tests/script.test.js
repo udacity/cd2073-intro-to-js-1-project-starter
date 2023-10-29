@@ -76,3 +76,5 @@ describe('Checkout Functionality Tests', () => {
         expect(cart.pay(1)).toBeLessThan(grandTotal());
     });
 });
+
+
