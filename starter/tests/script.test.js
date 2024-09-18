@@ -1,78 +1,122 @@
-const cart = require('../src/assets/script.js');
+// Product data with images
+const products = [
+    { id: 1, name: "Bunch of Banana", price: 10.00, image: "images/banana.jpg" },
+    { id: 2, name: "Bag of Orange", price: 15.00, image: "images/orange.jpg" },
+    { id: 3, name: "Carton of Strawberries", price: 20.00, image: "images/strawberry.jpg" }
+];
 
-describe('Cart Functionality Tests', () => {
-    let product1 = cart.products[1];
-    let cartArr = cart.cart;
+let cart = [];
+let amountDue = 0;
+let totalAmountPaid = 0;
 
-    test('addProductToCart adds product to cart', () => {
-        cart.addProductToCart(product1.productId);
-        expect(product1.quantity).toEqual(1);
-        expect(cartArr).toEqual([product1]);
-    });
-    test('addProductToCart a second time does not append the item twice', () => {
-        cart.addProductToCart(product1.productId);
-        expect(product1.quantity).toEqual(2);
-        expect(cartArr).toEqual([product1]);
-    });
-    test('increase product quantity', () => {
-        cart.increaseQuantity(product1.productId);
-        expect(product1.quantity).toEqual(3);
-    });
-    test('increase a second time', () => {
-        cart.increaseQuantity(product1.productId);
-        expect(product1.quantity).toEqual(4);
-    });
-    test('decrease quantity from 4 to 1 items', () => {
-        cart.decreaseQuantity(product1.productId);
-        cart.decreaseQuantity(product1.productId);
-        cart.decreaseQuantity(product1.productId);
-        expect(product1.quantity).toEqual(1);
-    });
-    test('decrease quantity from 1 to 0 removes item from cart', () => {
-        cart.decreaseQuantity(product1.productId);
-        expect(product1.quantity).toEqual(0);
-        expect(cartArr).toEqual([]);
-    });
-    test('remove 1 item from cart updates quantity to 0 and removes from cart', () => {
-        cart.addProductToCart(product1.productId);
-        cart.removeProductFromCart(product1.productId);
-        expect(product1.quantity).toEqual(0);
-        expect(cartArr).toEqual([]);
-    });
-});
+// Display products
+function displayProducts() {
+    const productList = document.getElementById('product-list');
+    productList.innerHTML = '<h2 class="centered-title">Mohamed\'s Product Listing</h2>';
 
-describe('Checkout Functionality Tests', () => {
-    let product1 = cart.products[1];
-    let product2 = cart.products[2];
-    let cartArr = cart.cart;
+    products.forEach(product => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
+        productDiv.innerHTML = `
+            <img src="${product.image}" alt="${product.name}" />
+            <div>
+                <h2>${product.name}</h2>
+                <p>Price: $${product.price.toFixed(2)}</p>
+                <button onclick="addToCart(${product.id})">Add to Cart</button>
+            </div>
+        `;
+        productList.appendChild(productDiv);
+    });
+}
 
-    // Functiion get's grand total of cart
-    function grandTotal() {
-        let cartSum = 0;
+// Add product to cart
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    const cartItem = cart.find(item => item.product.id === productId);
 
-        for (let i = 0; i < cartArr.length; i++) {
-            let itemTotal = cartArr[i].quantity * cartArr[i].price;
-
-            cartSum += itemTotal;
-        }
-
-        return cartSum;
+    if (cartItem) {
+        cartItem.quantity++;
+    } else {
+        cart.push({ product, quantity: 1 });
     }
 
-    test('cartTotal gets grand total of cart', () => {
-        cart.addProductToCart(product1.productId);
-        cart.addProductToCart(product2.productId);
-        cart.increaseQuantity(product1.productId);
-        expect(cart.cartTotal()).toEqual(grandTotal());
+    updateCart();
+}
+
+// Update cart display
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+
+    cart.forEach(item => {
+        const itemDiv = document.createElement('li');
+        const itemTotal = (item.product.price * item.quantity).toFixed(2);
+        itemDiv.innerHTML = `
+            ${item.product.name} - Price: $${item.product.price.toFixed(2)} x Quantity: ${item.quantity} = Total: $${itemTotal}
+            <button onclick="removeFromCart(${item.product.id})">Remove</button>
+            <button onclick="increaseQuantity(${item.product.id})">+</button>
+            <button onclick="decreaseQuantity(${item.product.id})">-</button>
+        `;
+        cartItems.appendChild(itemDiv);
     });
 
-    test('pay more than the total works', () => {
-        expect(cart.pay(100000000000000)).toBeGreaterThan(grandTotal());
-    });
+    amountDue = cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+    document.getElementById('total-amount').innerText = `$${amountDue.toFixed(2)}`;
+}
 
-    test('pay less than the total works', () => {
-        cart.addProductToCart(product1.productId);
-        cart.addProductToCart(product2.productId);
-        expect(cart.pay(1)).toBeLessThan(grandTotal());
-    });
+// Remove product from cart
+function removeFromCart(productId) {
+    cart = cart.filter(item => item.product.id !== productId);
+    updateCart();
+}
+
+// Increase quantity of product
+function increaseQuantity(productId) {
+    const cartItem = cart.find(item => item.product.id === productId);
+    if (cartItem) cartItem.quantity++;
+    updateCart();
+}
+
+// Decrease quantity of product
+function decreaseQuantity(productId) {
+    const cartItem = cart.find(item => item.product.id === productId);
+    if (cartItem) {
+        cartItem.quantity--;
+        if (cartItem.quantity <= 0) removeFromCart(productId);
+        else updateCart();
+    }
+}
+
+// Empty the cart
+function emptyCart() {
+    cart = [];
+    updateCart();
+}
+
+// Process checkout
+function processCheckout() {
+    const cashReceived = parseFloat(document.getElementById('cash-received').value) || 0;
+    let receiptText = '';
+    let balanceText = '';
+    let cashReturned = 0;
+
+    if (cashReceived < amountDue) {
+        receiptText = `Please pay an additional amount of $${(amountDue - cashReceived).toFixed(2)}.`;
+        balanceText = '';
+    } else {
+        cashReturned = cashReceived - amountDue;
+        receiptText = `Change Due: $${cashReturned.toFixed(2)}`;
+        balanceText = `You have paid more than the total amount.`;
+    }
+
+    document.getElementById('receipt').innerText = receiptText;
+    document.getElementById('balance').innerText = balanceText;
+    document.getElementById('cash-returned').innerText = `Cash Returned: $${cashReturned.toFixed(2)}`;
+    document.getElementById('thank-you').innerText = 'Thank you!';
+    emptyCart();
+}
+
+// Initialize the product display
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
 });

@@ -1,84 +1,92 @@
-* {
-    font-family: 'Montserrat', sans-serif;
-    padding: 0;
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 h1 {
     text-align: center;
-    padding: 1em;
+    color: #333;
 }
-h2, h3 {
-    padding: 1em 0 .5em;
+
+.centered-title {
+    text-align: center;
+    color: #333;
+    font-size: 24px;
 }
-p {
-    padding-bottom: 1em;
+
+.product-list,
+.cart-list {
+    list-style: none;
+    padding: 0;
 }
-.products-container{
-    width: 100%;
-    max-width: 55em;
-    padding: 2em;
-}
-.cart-container {
+
+.product,
+.cart-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
     display: flex;
-}
-.checkout-container {
-    max-width: 34em;
-    padding: 2em;
-    background: #efefef;
-}
-.products, .cart{
-    display: flex;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
-.products > div {
-    background: #f5f5f5;
-    margin: 1em;
-    padding: 2em;
+.product img,
+.cart-image {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 15px;
 }
 
-.products > div img {
-    max-width: 175px;
-    height: auto;
+.product div,
+.cart-item div {
+    flex: 1;
 }
 
-.products > div h3 {
-    font-weight: 800;
-}
-
-.cart > div {
-    border: 1px solid #ccc;
-    margin: 1em;
-    padding: 2em;
-}
-.checkout-container {
-    max-width: 34em;
-}
-.checkout {
-    margin-bottom: 4em;
+.product h2,
+.cart-item p {
+    margin: 0;
+    padding: 5px 0;
 }
 
 button {
-    border: 1px solid #ccc;
-    background: #fff;
-    padding: 1em;
-    transition: .2s ease all;
-    text-transform: uppercase;
-}
-button.pay {
-    background: #f5f5f5;
-    vertical-align: middle
-}
-button:hover {
-    background: rgb(93, 120, 118);
-    color: #fff;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
     cursor: pointer;
+    font-size: 14px;
+    margin: 5px;
+    transition: background-color 0.3s;
 }
 
-.received {
-    font-size: 1.5em;
-    padding: 0.3em;
-    border: 1px solid #ccc;
-    vertical-align: middle
+button:hover {
+    background-color: #218838;
+}
+
+button:disabled {
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+}
+
+#receipt,
+#balance,
+#cash-returned,
+#thank-you {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+#cart-items {
+    margin-top: 20px;
 }
