@@ -134,6 +134,10 @@ document.querySelector('.pay').addEventListener('click', (e) => {
         `;
     }
 
+    // force cart and checkout redraw after pay function completes
+    drawCart();
+    drawCheckout();
+
     paymentSummary.append(div);
 });
 
