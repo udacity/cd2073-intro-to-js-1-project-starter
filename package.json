@@ -1,0 +1,24 @@
+{
+  "name": "cd2073-intro-to-js-1-project-starter",
+  "version": "1.0.0",
+  "description": "You will be creating the core functionality used for a storefront application. The visual of the storefront as well as the JavaScript necessary to connect the code you will write, to that visual have already been created.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/udacity/cd2073-intro-to-js-1-project-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/udacity/cd2073-intro-to-js-1-project-starter/issues"
+  },
+  "homepage": "https://github.com/udacity/cd2073-intro-to-js-1-project-starter#readme",
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}
